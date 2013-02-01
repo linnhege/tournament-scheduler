@@ -2,7 +2,7 @@
 
 class AdminTournamentsController extends MvcAdminController {
 	
-	var $default_columns = array('name', 'date', 'serie_id');
+	var $default_columns = array('name','date', 'serie' => array('value_method' => 'admin_serie_name'));
 
     public function add() {
         $this->set_series();
@@ -12,9 +12,10 @@ class AdminTournamentsController extends MvcAdminController {
     public function edit() {
         $this->verify_id_param();
         $this->set_series();
-        $this->create_or_save();
         $this->set_object();
+        $this->create_or_save();
     }
+
 
     private function set_series() {
         $this->load_model('Series');
@@ -22,8 +23,8 @@ class AdminTournamentsController extends MvcAdminController {
         $this->set('series', $series);
     }
 
-    public function save() {
-
+    public function admin_serie_name($object) {
+        return empty($object->series) ? null : $object->series->name;
     }
 }
 

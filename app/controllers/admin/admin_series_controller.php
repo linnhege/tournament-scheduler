@@ -1,8 +1,11 @@
 <?php
 
 class AdminSeriesController extends MvcAdminController {
-	
-	var $default_columns = array('name', 'rankingleague_id');
+
+    var $default_search_joins = array('Rankingleague');
+	var $default_columns = array('name',
+                'rankingleague'  => array('value_method' => 'admin_rankingleague_name'));
+
 
     public function add() {
         $this->set_rankingleagues();
@@ -20,6 +23,10 @@ class AdminSeriesController extends MvcAdminController {
         $this->load_model('Rankingleague');
         $rankingleagues = $this->Rankingleague->find(array('selects' => array('id', 'name')));
         $this->set('rankingleagues', $rankingleagues);
+    }
+
+    public function admin_rankingleague_name($object) {
+        return empty($object->rankingleague) ? null : $object->rankingleague->name;
     }
 }
 
