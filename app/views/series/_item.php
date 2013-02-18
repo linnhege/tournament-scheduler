@@ -1,2 +1,2 @@
 <div>
-	<?php echo $this->html->series_link($object); ?></div>
+	<?php echo $this->html->series_link($tournament); ?></div>

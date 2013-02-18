@@ -8,6 +8,7 @@ class TournamentManager
     private $availablePlayers = null;
     private $currentUserId;
     private $users;
+    private $tournamentTeamManager;
 
 
     public function __construct($tournament, $currentUserId, $users)
@@ -22,29 +23,42 @@ class TournamentManager
      */
     public function availablePlayers()
     {
-        if ($this->availablePlayers != null) {
+        if (is_null($this->availablePlayers)) {
             return $this->availablePlayers;
         }
         $excludeList = $this->signupPlayers();
         $excludeList[] = $this->currentUserId;
         $this->availablePlayers = $this->removeUsers($this->users, $excludeList);
-        return $this->availablePlayers;
+
+        $options = array();
+        foreach($this->availablePlayers as $player) {
+            $options[$player->ID] = $player->display_name;
+        }
+        $this->availablePlayers = $options;
+        return $options;
     }
 
+    /**
+     * @return array of player ids
+     */
     public function signupPlayers()
     {
-        if (!$this->signedupPlayers == null) {
-            return $this->signedupPlayers;
-        } else {
-            $this->signedupPlayers = array();
-
-            foreach ($this->tournament->results as $result) {
-                $this->signedupPlayers[] = $result->teams->player1_id;
-                $this->signedupPlayers[] = $result->teams->player2_id;
-            }
-            return $this->signedupPlayers;
+        if($this->tournamentTeamManager == null) {
+            $this->tournamentTeamManager = new TournamentTeamManager($this->tournament);
         }
+        return $this->tournamentTeamManager->signupPlayers();
     }
+
+    /**
+     * @return array returns an array of arrays that contains 2 elements, the id's the player on the team.
+     */
+    public function seedingList() {
+        if($this->tournamentTeamManager == null) {
+            $this->tournamentTeamManager = new TournamentTeamManager($this->tournament);
+        }
+        return $this->tournamentTeamManager->seedingList();
+    }
+
 
     /**
      * @return bool
@@ -64,5 +78,15 @@ class TournamentManager
         endforeach;
         return $cleaned_users;
 
+    }
+
+    public function getResultList()
+    {
+        $resultManager = new ResultManager($this->tournament->id);
+        $resultList = $resultManager->getResultList();
+        foreach($resultList as $result):
+            $result->team = TeamManager::constructTeamByTeamId($result->team_id);
+        endforeach;
+        return $resultList;
     }
 }

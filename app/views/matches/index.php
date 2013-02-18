@@ -1,8 +1,8 @@
 <h2>Matches</h2>
 
-<?php foreach ($objects as $object): ?>
+<?php foreach ($objects as $tournament): ?>
 
-	<?php $this->render_view('_item', array('locals' => array('object' => $object))); ?>
+	<?php $this->render_view('_item', array('locals' => array('object' => $tournament))); ?>
 
 <?php endforeach; ?>
 

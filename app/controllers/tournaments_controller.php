@@ -4,12 +4,18 @@ class TournamentsController extends MvcPublicController
 {
 
     public function add_team() {
+        $player_id1 = (int) $_POST['player_id1'];
+        $player_id2 = (int) $_POST['player_id2'];
         $tournament_id = (int) $_POST['tournament_id'];
-        if(get_current_user_id() != (int) $_POST['player_id1']) {
-            throw new UnexpectedValueException("player_id1 is not equal to the current user logged in");
+        $signupVaildator = new ResultManager($tournament_id);
+        $id = $signupVaildator->signup($player_id1, $player_id2);
+        if($id > 0) {
+            $this->set_flash('notice', 'Du er meld på turneringen!');
+        } else {
+            $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt oss hvis du har sett denne meldingen flere ganger!');
         }
-        $this->flash('notice', 'Du er meld på turneringen!');
-        $this->refresh();
+        $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+        $this->redirect($url);
     }
 
     public function show()
@@ -18,7 +24,7 @@ class TournamentsController extends MvcPublicController
         $this->load_model('Tournament');
         $object = $this->view_vars['object'];
         $tournament = $this->Tournament->find_by_id($object->id, array(
-            'includes' => array('Resgult')
+            'includes' => array('Result')
         ));
         $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
         //print_r($tournamentManager);
@@ -31,7 +37,9 @@ class TournamentsController extends MvcPublicController
         $this->set('adminUrl', $adminUrl);
         $this->set('availablePlayers', $tournamentManager->availablePlayers());
         $this->set('signupPlayers', $tournamentManager->signupPlayers());
+        $this->set('seedingList', $tournamentManager->seedingList());
         $this->set('isUserSignedup', $tournamentManager->isCurrentUserSignedUp());
+        $this->set('results', $tournamentManager->getResultList());
 
     }
 

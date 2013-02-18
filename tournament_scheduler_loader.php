@@ -54,7 +54,8 @@ class TournamentSchedulerLoader extends MvcPluginLoader
                           id mediumint(9) NOT NULL  PRIMARY KEY AUTO_INCREMENT,
                           player1_id mediumint(9) NOT NULL,
                           player2_id mediumint(9) NOT NULL,
-                          UNIQUE KEY id (id)
+                          UNIQUE KEY id (id),
+                          UNIQUE KEY id (player1_id, player2_id)
                           ) DEFAULT CHARACTER SET utf8;";
             dbDelta($sql);
 
