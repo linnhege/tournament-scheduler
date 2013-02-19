@@ -23,7 +23,7 @@ class TournamentManager
      */
     public function availablePlayers()
     {
-        if (is_null($this->availablePlayers)) {
+        if (!is_null($this->availablePlayers)) {
             return $this->availablePlayers;
         }
         $excludeList = $this->signupPlayers();
@@ -82,7 +82,7 @@ class TournamentManager
 
     public function getResultList()
     {
-        $resultManager = new ResultManager($this->tournament->id);
+        $resultManager = new TournamentResultManager($this->tournament->id);
         $resultList = $resultManager->getResultList();
         foreach($resultList as $result):
             $result->team = TeamManager::constructTeamByTeamId($result->team_id);

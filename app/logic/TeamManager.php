@@ -67,7 +67,7 @@ class TeamManager
         return $team->id;
     }
 
-    private static function createTeam($id1, $id2, $teamsModel)
+    public  static function createTeam($id1, $id2, $teamsModel)
     {
         $team = array(
             'player1_id' => $id1,
@@ -82,8 +82,8 @@ class TeamManager
      * @return int
      */
     public  function getRanking() {
-        $player1 = new Player($this->player_id1);
-        $player2 = new Player($this->player_id2);
+        $player1 = new PlayerManager($this->player_id1);
+        $player2 = new PlayerManager($this->player_id2);
         return $player1->getRanking() + $player2->getRanking();
     }
 
@@ -91,14 +91,14 @@ class TeamManager
      * @return Player
      */
     public function getPlayer1() {
-        return new Player($this->player_id1);
+        return new PlayerManager($this->player_id1);
     }
 
     /**
      * @return Player
      */
     public function getPlayer2() {
-        return new Player($this->player_id2);
+        return new PlayerManager($this->player_id2);
     }
 
     public function getUser1() {

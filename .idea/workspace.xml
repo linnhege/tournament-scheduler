@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5366d838-3d76-41d0-acb0-99ddfb23d9d4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/players_controller.php" />
+      <change type="MOVED" beforePath="C:\xampp2\htdocs\wordpress\wp-content\plugins\tournament-scheduler\app\logic\Player.php" afterPath="$PROJECT_DIR$/app/logic/PlayerManager.php" />
+      <change type="MOVED" beforePath="C:\xampp2\htdocs\wordpress\wp-content\plugins\tournament-scheduler\app\logic\ResultManager.php" afterPath="$PROJECT_DIR$/app/logic/TournamentResultManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/bootstrap.php" afterPath="$PROJECT_DIR$/app/config/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tournaments_controller.php" afterPath="$PROJECT_DIR$/app/controllers/tournaments_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/logic/TeamManager.php" afterPath="$PROJECT_DIR$/app/logic/TeamManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/logic/TournamentManager.php" afterPath="$PROJECT_DIR$/app/logic/TournamentManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/rankingleagues/index.php" afterPath="$PROJECT_DIR$/app/views/rankingleagues/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tournaments/_signup_teams.php" afterPath="$PROJECT_DIR$/app/views/tournaments/_signup_teams.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tournaments/show.php" afterPath="$PROJECT_DIR$/app/views/tournaments/show.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_logged_in.php" afterPath="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_logged_in.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_registered.php" afterPath="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_registered.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/util/util.php" afterPath="$PROJECT_DIR$/app/views/util/util.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/admin/events/edit.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/admin/events/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/events/_item.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/events/_item.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/events/show.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/events/show.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/_info.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/_info.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/_item.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/_item.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/show.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/speakers/show.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/venues/_item.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/venues/_item.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/venues/show.php" afterPath="$PROJECT_DIR$/../wp-mvc/examples/events-calendar-example/app/views/venues/show.php" />
+    </list>
+    <ignored path="tournament-scheduler.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/players/show.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="40" selection-start="484" selection-end="484" vertical-scroll-proportion="-8.538462">
+              <folding>
+                <marker date="1361190965219" expanded="true" signature="440:518" placeholder="..." />
+                <marker date="1361190965219" expanded="true" signature="569:664" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tournaments_controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/tournaments_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="26" selection-start="840" selection-end="840" vertical-scroll-proportion="-11.307693">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/logic/PlayerManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="73" selection-start="1999" selection-end="1999" vertical-scroll-proportion="-11.807693">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_item.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/tournaments/_item.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_signup_teams.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tournaments/_signup_teams.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="31" selection-start="119" selection-end="119" vertical-scroll-proportion="0.29912025">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TournamentResultManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/logic/TournamentResultManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="830" selection-end="830" vertical-scroll-proportion="-9.846154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="players_controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/players_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="27" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.8461537">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/bootstrap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="58" selection-start="175" selection-end="175" vertical-scroll-proportion="-3.9230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mvc_public_controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../wp-mvc/core/controllers/mvc_public_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="21" selection-start="267" selection-end="267" vertical-scroll-proportion="-3.3076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mvc_controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../wp-mvc/core/controllers/mvc_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="133" column="23" selection-start="3836" selection-end="3856" vertical-scroll-proportion="-5.6538463">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_logged_in.php" />
+        <option value="$PROJECT_DIR$/app/logic/TeamManager.php" />
+        <option value="$PROJECT_DIR$/app/views/tournaments/show.php" />
+        <option value="$PROJECT_DIR$/app/views/tournaments/signup/_signup_not_registered.php" />
+        <option value="$PROJECT_DIR$/app/logic/ResultManager.php" />
+        <option value="$PROJECT_DIR$/app/models/player.php" />
+        <option value="$PROJECT_DIR$/app/logic/Player.php" />
+        <option value="$PROJECT_DIR$/app/config/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/players/_item.php" />
+        <option value="$PROJECT_DIR$/app/views/players/index.php" />
+        <option value="$PROJECT_DIR$/app/controllers/players_controller.php" />
+        <option value="$PROJECT_DIR$/app/config/bootstrap.php" />
+        <option value="$PROJECT_DIR$/app/views/players/show.php" />
+        <option value="$PROJECT_DIR$/app/logic/TournamentResultManager.php" />
+        <option value="$PROJECT_DIR$/app/logic/PlayerManager.php" />
+        <option value="$PROJECT_DIR$/app/views/tournaments/_item.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="." />
+      <path value="C:\xampp2\php\pear\pear" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournaments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tournament-scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wp-mvc" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig" serverName="wp-mvc tutorial" serverId="e2eb84ed-0498-48d5-b67f-d705d606ae21">
+    <servers>
+      <server id="b374a0b0-9eee-48fa-af3c-f204290cf369">
+        <serverdata />
+      </server>
+      <server id="e2eb84ed-0498-48d5-b67f-d705d606ae21">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="wordpress/wp-content/plugins/tournament-scheduler" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp2\htdocs\wordpress\wp-content\plugins\tournament-scheduler" />
+      <recent name="C:\xampp2\htdocs\wordpress\wp-content\plugins\tournament-scheduler\app\views\tournaments" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="e2eb84ed-0498-48d5-b67f-d705d606ae21" server_name="wp-mvc tutorial">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5366d838-3d76-41d0-acb0-99ddfb23d9d4" name="Default" comment="" />
+      <created>1359330485010</created>
+      <updated>1359330485010</updated>
+    </task>
+    <task id="LOCAL-00001" summary="commiting work....">
+      <created>1359734784827</created>
+      <updated>1359734784827</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Signing up teams, seeding and resultlist works, but need design">
+      <created>1361152692257</created>
+      <updated>1361152692257</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29452056" sideWeight="0.48181817" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29452056" sideWeight="0.5128788" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24015151" sideWeight="0.70547944" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2219697" sideWeight="0.20547946" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2219697" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signing up teams, seeding and resultlist works, but need design" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="commiting work...." />
+    <MESSAGE value="Signing up teams, seeding and resultlist works, but need design" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/models/result.php</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/admin/admin_tournaments_controller.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="tournament-scheduler" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="tournament-scheduler" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/models/match.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="30" selection-start="7" selection-end="37" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/matches_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="20" selection-start="68" selection-end="68" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/rankingleagues_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wp-mvc/core/shells/generate_shell.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="200" column="67" selection-start="6011" selection-end="6011" vertical-scroll-proportion="-4.3461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/util/util.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="9" selection-start="273" selection-end="273" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/players/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="62" selection-start="196" selection-end="196" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wp-mvc/core/controllers/mvc_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="23" selection-start="3836" selection-end="3856" vertical-scroll-proportion="-5.6538463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wp-mvc/core/controllers/mvc_public_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="21" selection-start="267" selection-end="267" vertical-scroll-proportion="-3.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/players_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="27" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.8461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="58" selection-start="175" selection-end="175" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/players/show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="40" selection-start="484" selection-end="484" vertical-scroll-proportion="-8.538462">
+          <folding>
+            <marker date="1361190965219" expanded="true" signature="440:518" placeholder="..." />
+            <marker date="1361190965219" expanded="true" signature="569:664" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/tournaments_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="26" selection-start="840" selection-end="840" vertical-scroll-proportion="-11.307693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/logic/TournamentResultManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="830" selection-end="830" vertical-scroll-proportion="-9.846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/logic/PlayerManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="73" selection-start="1999" selection-end="1999" vertical-scroll-proportion="-11.807693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tournaments/_item.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tournaments/_signup_teams.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="31" selection-start="119" selection-end="119" vertical-scroll-proportion="0.29912025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

@@ -1,6 +1,6 @@
 <p>
     <strong>
-        <a href='<?php echo wp_login_url(get_permalink()) ?>'> Logg inn </a> for og melde deg på turneringen
+        <a href='<?php echo wp_login_url($_SERVER["REQUEST_URI"]) ?>'> Logg inn </a> for og melde deg på turneringen
     </strong>
 </p>
 <p>Alle medlemmer av OSVB har en konto, vet du ikke ditt brukernavn og passord, prøv og trykk på logg inn også velg

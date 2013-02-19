@@ -1,8 +1,9 @@
 <?php
 
-class ResultManager
+class TournamentResultManager
 {
     private $validator;
+    private $resultModel;
 
     public function __construct($tournamentId) {
         $this->validator = new SignupValidator($tournamentId);
@@ -11,7 +12,8 @@ class ResultManager
 
     public function signup($player_id1, $player_id2) {
         $this->validator->isValid($player_id1, $player_id2);
-        $team_id = $this->createTeam($player_id1, $player_id2);
+        $teamModel = mvc_model("Team");
+        $team_id = TeamManager::createTeam($player_id1, $player_id2, $teamModel);
         return $this->createResult($team_id);
     }
 
@@ -25,11 +27,11 @@ class ResultManager
         return $this->teamsModel->insert_id;
     }
 
-    //TODO: Fix so that it only retrives teams with a place.
     public function getResultList() {
         $resultList = $this->resultModel->find(array(
             'conditions' => array(
                 'tournament_id' => $this->validator->tournament_id,
+                'points >' => 0
             ),
             'order' => 'place DESC'
 
