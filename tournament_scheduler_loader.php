@@ -3,7 +3,7 @@
 class TournamentSchedulerLoader extends MvcPluginLoader
 {
 
-    var $db_version = '0.6';
+    var $db_version = '5.1';
     var $tables = array();
 
     function activate()
@@ -52,10 +52,17 @@ class TournamentSchedulerLoader extends MvcPluginLoader
 
             $sql = "CREATE TABLE {$wpdb->prefix}teams (
                           id mediumint(9) NOT NULL  PRIMARY KEY AUTO_INCREMENT,
-                          player1_id mediumint(9) NOT NULL,
-                          player2_id mediumint(9) NOT NULL,
+                          name mediumint(9) NOT NULL,
+                          UNIQUE KEY id (id)
+                          ) DEFAULT CHARACTER SET utf8;";
+            dbDelta($sql);
+
+            $sql = "CREATE TABLE {$wpdb->prefix}playersinteam (
+                          id mediumint(9) NOT NULL  PRIMARY KEY AUTO_INCREMENT,
+                          team_id mediumint(9) NOT NULL,
+                          player_id mediumint(9) NOT NULL,
                           UNIQUE KEY id (id),
-                          UNIQUE KEY id (player1_id, player2_id)
+                          UNIQUE KEY (team_id, player_id)
                           ) DEFAULT CHARACTER SET utf8;";
             dbDelta($sql);
 

@@ -10,10 +10,12 @@ class TournamentResultManager
         $this->resultModel = mvc_model("Result");
     }
 
-    public function signup($player_id1, $player_id2) {
-        $this->validator->isValid($player_id1, $player_id2);
+    public function signup($player_id1, $players) {
+
+        $this->validator->isValid($player_id1, $players);
         $teamModel = mvc_model("Team");
-        $team_id = TeamManager::createTeam($player_id1, $player_id2, $teamModel);
+        $players[] = $player_id1;
+        $team_id = TeamManager::createTeam($players, $teamModel);
         return $this->createResult($team_id);
     }
 

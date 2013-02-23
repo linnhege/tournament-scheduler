@@ -11,30 +11,38 @@ class SignupValidator
         $this->tournament_id = $tournament_id;
     }
 
-    public function isValid($player_id1, $player_id2) {
+    public function isValid($player_id1, $player_ids) {
         $current_user = wp_get_current_user();
         if((int) $current_user->ID != (int) $player_id1) {
             throw new UnexpectedValueException("player is not equal to the current user logged in");
         }
 
-        if($player_id2 == $player_id1) {
+        if(in_array($player_id1, $player_ids)) {
             throw new UnexpectedValueException("Same person");
         }
 
         $this->ifUserIsSignedUpThrowError($player_id1);
-        $this->ifUserIsSignedUpThrowError($player_id2);
+        foreach($player_ids as $player_id):
+            $this->ifUserIsSignedUpThrowError($player_id);
+        endforeach;
     }
 
     public function ifUserIsSignedUpThrowError($player_id)
     {
+        global $wpdb;
         $player_count = $this->resultModel->count(
-            array( 'joins' => array('table' => '{prefix}teams',
+            array( 'joins' => array('team' =>
+                                        array('table' => $wpdb->prefix . 'teams',
+                                               'alias' => "Team",
+                                               'on' => "Result.team_id = Team.id"),
+                                    'playersinteam' =>
+                                        array('table' => $wpdb->prefix . 'playersinteam',
+                                              'alias' => "pt",
+                                               'on' => "pt.team_id = Team.id")),
                    'conditions' => array(
                         'AND' => array('Result.tournament_id' => $this->tournament_id),
-                        'OR' => array
-                                ('Team.player1_id' => $player_id,
-                                'Team.player2_id' => $player_id)
-        ))));
+                                      'pt.player_id' => $player_id
+        )));
 
         if ($player_count > 0) {
             $user = get_user_by('id', $player_id);

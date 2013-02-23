@@ -5,10 +5,10 @@ class TournamentsController extends MvcPublicController
 
     public function add_team() {
         $player_id1 = (int) $_POST['player_id1'];
-        $player_id2 = (int) $_POST['player_id2'];
+        $player_ids = (array) $_POST['player_id2'];
         $tournament_id = (int) $_POST['tournament_id'];
         $signupVaildator = new TournamentResultManager($tournament_id);
-        $id = $signupVaildator->signup($player_id1, $player_id2);
+        $id = $signupVaildator->signup($player_id1, $player_ids);
         if($id > 0) {
             $this->set_flash('notice', 'Du er meld på turneringen!');
         } else {

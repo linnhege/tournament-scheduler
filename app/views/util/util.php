@@ -2,7 +2,16 @@
 
 
 function display_team($team) {
-    return display_tournament_user($team->getUser1()) . " - " . display_tournament_user($team->getUser2());
+    $output = "";
+    $i = 0;
+    foreach($team->getUsers() as $user):
+        if(sizeof($team->getUsers())== $i+1) {
+            $output.= display_tournament_user($user);
+        } else {
+            $output.= display_tournament_user($user) . " - ";
+        }
+    endforeach;
+    return $output;
 }
 
 function display_team_with_seeding($team) {

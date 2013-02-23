@@ -3,9 +3,9 @@
 class TeamManager
 {
     private $teamsModel;
-    private $team_id;
-    public  $player_id1;
-    public $player_id2;
+    public  $team_id;
+    public $players;
+    public $team_name;
 
     private function __construct($team_id) {
         $this->teamsModel = mvc_model("Team");
@@ -13,9 +13,15 @@ class TeamManager
         if($team == null) {
             throw new UnexpectedValueException("The id for Team do not exist:" . $team_id);
         }
-        $this->player_id1 = $team->player1_id;
-        $this->player_id2 = $team->player2_id;
         $this->team_id = $team_id;
+        $this->team_name = $team->name;
+
+        global $wpdb;
+        $results = $wpdb->get_results("Select * from " . $wpdb->prefix . "playersinteam where team_id = " . $team_id);
+        $this->players = array();
+        foreach($results as  $result):
+            $this->players[] = $result->player_id;
+        endforeach;
     }
 
     /**
@@ -27,54 +33,63 @@ class TeamManager
     }
 
     /**
-     * @param $player_id1
-     * @param $player_id2
+     * @param $players
      * @return TeamManager
      */
-    public  static function constructTeamByPlayerIds($player_id1, $player_id2) {
+    public  static function constructTeamByPlayerIds(array $players) {
         $teamsModel = mvc_model("Team");
 
-        if($player_id1 < $player_id2) {
-            $id1 = $player_id1;
-            $id2 = $player_id2;
+        //TODO: Same query twice. Could be fixed if performance issues
+        if(!self::teamExist($players)) {
+            $team_id = self::getTeamId($players);
         } else {
-            $id1 = $player_id2;
-            $id2 = $player_id1;
-        }
-        if(!self::teamExist($id1, $id2, $teamsModel)) {
-            $team_id = self::getTeamId($id1, $id2, $teamsModel);
-        } else {
-            $team_id = self::createTeam($id1, $id2, $teamsModel);
+            $team_id = self::createTeam($players, $teamsModel);
         }
         return new TeamManager($team_id);
     }
 
-    private static function teamExist($id1, $id2, $teamsModel)
+    private static function teamExist($players)
     {
-        $count = $teamsModel->count(array('conditions' => array(
-            'player1_id' => $id1,
-            'player2_id' => $id2,
-        )));
+        global $wpdb;
+        $sql = self::createTeamExistSql($players);
+        $wpdb->get_results("$sql");
+        $count = $wpdb->num_rows;
         return ($count != 0);
     }
 
-    private static function getTeamId($id1, $id2, $teamsModel)
+    private static function getTeamId($players)
     {
-        $team = $teamsModel->find_one(array('conditions' => array(
-            'player1_id' => $id1,
-            'player2_id' => $id2,
-        )));
-        return $team->id;
+        global $wpdb;
+        $sql = self::createTeamExistSql($players);
+        $result = $wpdb->get_results("$sql");
+        return $result->team_id;
     }
 
-    public  static function createTeam($id1, $id2, $teamsModel)
+    public  static function createTeam($players, $teamsModel)
     {
+        global $wpdb;
+        $prefix = $wpdb->prefix;
         $team = array(
-            'player1_id' => $id1,
-            'player2_id' => $id2,
+            'name' => implode(",", $players)
         );
         $teamsModel->create($team);
         $id = $teamsModel->insert_id;
+        //TODO: Why do the num_rows say 2 on the query below??
+        $expected_affected_rows = 2;
+        $unexpected_problems = false;
+        foreach($players as $player):
+            $sql = "INSERT INTO ".$prefix."playersinteam(team_id, player_id) VALUES ($id, $player)";
+            $result = $wpdb->query("$sql");
+            $affected_rows = $wpdb->num_rows;
+            echo "affected_rows: " . $affected_rows;
+            if($affected_rows != $expected_affected_rows):
+                $unexpected_problems  = true;
+            endif;
+        endforeach;
+        if($unexpected_problems) {
+            throw new DomainException("Problems creating teams...
+                            The creation of the team could be in a error stat");
+        }
         return $id;
     }
 
@@ -82,30 +97,90 @@ class TeamManager
      * @return int
      */
     public  function getRanking() {
-        $player1 = new PlayerManager($this->player_id1);
-        $player2 = new PlayerManager($this->player_id2);
-        return $player1->getRanking() + $player2->getRanking();
+        $sum = 0;
+        foreach($this->players as $player_id):
+            $player = new PlayerManager($player_id);
+            $sum += $player->getRanking();
+        endforeach;
+        return $sum;
     }
 
     /**
-     * @return Player
+     * @return PlayerManager[]
      */
-    public function getPlayer1() {
-        return new PlayerManager($this->player_id1);
+    public function getPlayers() {
+        $players = array();
+        foreach($this->players as $player_id):
+            $players[] = new PlayerManager($player_id);
+        endforeach;
+        return $players;
     }
+
+    public function getUsers() {
+        foreach($this->players as $player_id):
+            $users[] = get_user_by('id', $player_id);
+
+        endforeach;
+        return $users;
+    }
+
 
     /**
-     * @return Player
+     * @param $players array of ids
      */
-    public function getPlayer2() {
-        return new PlayerManager($this->player_id2);
+    private static function createTeamExistSql($players)
+    {
+        global $wpdb;
+        $prefix = $wpdb->prefix;
+        $sql = "SELECT p1.team_id  FROM ";
+        foreach($players as $key => $player):
+            $number = $key +1;
+            if($number == count($players)) {
+                $sql.= $prefix."playersinteam p$number ";
+            } else {
+                $sql.= $prefix."playersinteam p$number, ";
+            }
+        endforeach;
+        $sql.="WHERE ";
+        foreach($players as $key => $player):
+            $number = $key+1;
+            if($number == 1):
+                $sql.= "p$number.player_id = $player ";
+            elseif($number == count($players)):
+                $sql.= "AND p$number.player_id = $player, ";
+            else:
+                $sql.= "AND p$number.player_id = $player";
+            endif;
+        endforeach;
+        foreach($players as $key => $player):
+            $number = $key+1;
+            $oneInFront = $number +1;
+            if($number == 1):
+                $sql.= "p$number.team_id = p$oneInFront.team_id ";
+                if(count($players) == 2):
+                    $sql.=", ";
+                endif;
+            elseif($oneInFront == count($players)):
+                $sql.= "AND p$number.team_id = p$oneInFront.team_id ";
+            elseif($number == count($players)):
+                $sql.= "";
+            else:
+                $sql.= "AND p$number.team_id = p$oneInFront.team_id, ";
+            endif;
+        endforeach;
+        $sql.= "AND (p1.team_id) NOT IN
+            (select distinct sub.team_id from wp_playersinteam sub
+                WHERE sub.player_id not in (";
+        foreach($players as $key => $player):
+            $sql.= $player;
+            if(count($players) != $key +1):
+                $sql.=",";
+            endif;
+        endforeach;
+        $sql.=")";
+        echo $sql;
+        exit;
+        return $sql;
     }
 
-    public function getUser1() {
-        return get_user_by('id', $this->player_id1);
-    }
-
-    public function getUser2() {
-        return get_user_by('id', $this->player_id2);
-    }
 }
