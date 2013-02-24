@@ -2,6 +2,8 @@
 
 class AdminResultsController extends MvcAdminController {
 
+    var $default_columns = array('id', 'name');
+
     public function add() {
         $this->set_rankingleagues();
         $this->create_or_save();
@@ -24,8 +26,6 @@ class AdminResultsController extends MvcAdminController {
         return empty($object->rankingleague) ? null : $object->rankingleague->name;
     }
 
-	var $default_columns = array('id', 'name');
-	
 }
 
 ?>

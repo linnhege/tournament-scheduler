@@ -20,16 +20,11 @@ class TournamentTeamManager
      */
     public function signupPlayers()
     {
-        $signedupPlayers = array();
-
         global $wpdb;
+        $playersInTeam = new PlayersInTeam($wpdb);
         $teams = $this->getTeamsId();
-        $sql = "Select distinct player_id from " . $wpdb->prefix . "playersinteam where team_id IN (" . implode(",", $teams) . ")";
-        $results = $wpdb->get_results($sql);
-        foreach($results as $result):
-            $signedupPlayers[] = $result->player_id;
-        endforeach;
-        return $signedupPlayers;
+        $playersIds = $playersInTeam->getPlayersFromTeam($teams);
+        return $playersIds;
     }
 
     /**

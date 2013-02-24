@@ -50,6 +50,7 @@ class TournamentsController extends MvcPublicController
         $this->set('series', $series);
     }
 
+
 }
 
 ?>
