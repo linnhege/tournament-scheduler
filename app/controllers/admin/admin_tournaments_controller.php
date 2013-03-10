@@ -29,16 +29,10 @@ class AdminTournamentsController extends MvcAdminController {
 
     public function results()
     {
-        $id = $this->params['id'];
-
-        if(empty($id)):
-            $tournaments_model = mvc_model("Tournament");
-            $all_tournaments = $tournaments_model->all();
-            $options = array('locals' => array('tournaments' => $all_tournaments));
-            $this->render_view("admin/tournaments/choose_tournament", $options);
-        else:
-            $this->render_view("admin/tournaments/add_result");
-        endif;
+        $tournaments_model = mvc_model("Tournament");
+        $all_tournaments = $tournaments_model->find();
+        $options = array('locals' => array('tournaments' => $all_tournaments));
+        $this->render_view("admin/tournaments/choose_tournament", $options);
     }
 
 }

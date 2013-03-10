@@ -2,16 +2,30 @@
 
 class TournamentTeamManager
 {
+    /**
+     * @var Tournament
+     */
     private $tournament;
+    /**
+     * @var Team
+     */
     private $team_model;
+    /**
+     * @var array
+     */
     private $teams = array();
+    /**
+     * @var TournamentManager
+     */
+    private $tournamentManager;
 
     /**
-     * @param $tournament Tournament that inherits from MvcModel
+     * @param $tournament TournamentManager that inherits from MvcModel
      */
     public function __construct($tournament)
     {
-        $this->tournament = $tournament;
+        $this->tournamentManager = $tournament;
+        $this->tournament = $tournament->tournament();
         $this->team_model = mvc_model('Team');
     }
 
@@ -51,7 +65,8 @@ class TournamentTeamManager
             $this->teams = array();
             if(!empty($this->tournament->results)):
                 foreach ($this->tournament->results as $result):
-                    $this->teams[] = TeamManager::constructTeamByTeamId($result->team_id);
+                    $this->teams[] = TeamManager::constructTeamByTeamId($result->team_id,
+                        $this->tournamentManager->getRankingLeagueId());
                 endforeach;
             endif;
             return $this->teams;

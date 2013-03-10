@@ -2,12 +2,20 @@
 
 class TournamentManager
 {
+    /**
+     * @var Tournament
+     */
     private $tournament;
+
     public $usersAlreadySignup = false;
     private $signedupPlayers = array();
     private $availablePlayers = null;
     private $currentUserId;
     private $users;
+
+    /**
+     * @var TournamentTeamManager
+     */
     private $tournamentTeamManager;
 
 
@@ -44,7 +52,7 @@ class TournamentManager
     public function signupPlayers()
     {
         if($this->tournamentTeamManager == null) {
-            $this->tournamentTeamManager = new TournamentTeamManager($this->tournament);
+            $this->tournamentTeamManager = new TournamentTeamManager($this);
         }
         return $this->tournamentTeamManager->signupPlayers();
     }
@@ -85,8 +93,29 @@ class TournamentManager
         $resultManager = new TournamentResultManager($this->tournament->id);
         $resultList = $resultManager->getResultList();
         foreach($resultList as $result):
-            $result->team = TeamManager::constructTeamByTeamId($result->team_id);
+            $result->team = TeamManager::constructTeamByTeamId($result->team_id, $this->getRankingLeagueId());
         endforeach;
         return $resultList;
+    }
+
+    /**
+     * @return int returns the rankingleague_id for this tournament
+     */
+    public function getRankingLeagueId() {
+        global $wpdb;
+        $sql = "Select s.rankingleague_id from " . $wpdb->prefix . "series s, " . $wpdb->prefix . "tournaments t
+        where t.id =".  $this->tournament->__id . "
+        and t.serie_id = s.id";
+        $result = $wpdb->get_results($sql);
+        return $result[0]->rankingleague_id;
+
+
+    }
+
+    /**
+     * @return Tournament
+     */
+    public function tournament() {
+        return $this->tournament;
     }
 }

@@ -27,7 +27,6 @@ class TournamentsController extends MvcPublicController
             'includes' => array('Result')
         ));
         $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
-        //print_r($tournamentManager);
 
         //TODO.... fix Result/Users
         $current_user = wp_get_current_user();
@@ -49,7 +48,6 @@ class TournamentsController extends MvcPublicController
         $series = $this->Series->find(array('selects' => array('id', 'name')));
         $this->set('series', $series);
     }
-
 
 }
 

@@ -7,7 +7,8 @@ class TeamManager
     public $players;
     public $team_name;
 
-    private function __construct($team_id) {
+    private function __construct($team_id, $rankingleague_id) {
+        $this->rankingleague_id = $rankingleague_id;
         $this->teamsModel = mvc_model("Team");
         $team = $this->teamsModel->find_one_by_id($team_id);
         if($team == null) {
@@ -28,13 +29,13 @@ class TeamManager
      * @param $team_id
      * @return TeamManager
      */
-    public static function constructTeamByTeamId($team_id) {
-        return new TeamManager($team_id);
+    public static function constructTeamByTeamId($team_id, $rankingleague_id) {
+        return new TeamManager($team_id, $rankingleague_id);
     }
 
     /**
      * @param $players
-     * @return TeamManager
+     * @return $team_id int
      */
     public  static function constructTeamByPlayerIds(array $players) {
         $teamsModel = mvc_model("Team");
@@ -45,7 +46,7 @@ class TeamManager
         } else {
             $team_id = self::createTeam($players, $teamsModel);
         }
-        return new TeamManager($team_id);
+        return new $team_id;
     }
 
     private static function teamExist($players)
@@ -99,7 +100,7 @@ class TeamManager
     public  function getRanking() {
         $sum = 0;
         foreach($this->players as $player_id):
-            $player = new PlayerManager($player_id);
+            $player = new PlayerManager($player_id, $this->rankingleague_id);
             $sum += $player->getRanking();
         endforeach;
         return $sum;

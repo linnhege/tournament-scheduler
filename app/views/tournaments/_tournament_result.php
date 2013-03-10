@@ -7,8 +7,7 @@ else:
     echo "<ul>";
     foreach($results as $result):
         $place = $result->place;
-        $points = $result->points;
-        echo "<li>$place. ". display_team($result->team) . " (points: $points) </li>";
+        echo "<li>$place. ". display_team($result->team) . "</li>";
     endforeach;
     echo "</ul>";
 endif;

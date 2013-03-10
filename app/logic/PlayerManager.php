@@ -14,13 +14,20 @@ class PlayerManager
      */
     private $ranking;
 
+    /**
+     * @var int
+     */
+    private $rankingleague_id;
+
     private $results;
 
     /**
      * @param $player_id int wordpress_user_id
+     * @param $rankingleague_id int
      */
-    public function __construct($player_id) {
+    public function __construct($player_id, $rankingleague_id) {
         $this->id = $player_id;
+        $this->rankingleague_id = $rankingleague_id;
     }
 
     public function getRanking() {
@@ -34,12 +41,22 @@ class PlayerManager
         $this->ranking = $this->resultModel->sum('Result.points', array(
             'joins' => array('Team' => array('table' => $wpdb->prefix .'teams',
                                              'alias' => 'Team',
-                                             'on' => 'Result.team_id = Team.id')),
+                                             'on' => 'Result.team_id = Team.id'),
+                                    array('table' => $wpdb->prefix .'playersinteam',
+                                        'alias' => 'PiT',
+                                        'on' => 'PiT.team_id = Team.id'),
+                                    array('table' => $wpdb->prefix .'tournaments',
+                                        'alias' => 'Tournament',
+                                        'on' => 'Tournament.id = Result.tournament_id'),
+                                    array('table' => $wpdb->prefix .'series',
+                                    'alias' => 'Serie',
+                                    'on' => 'Serie.id = Tournament.serie_id'),
+                                    array('table' => $wpdb->prefix .'rankingleagues',
+                                        'alias' => 'Rankingleague',
+                                        'on' => 'Rankingleague.id = Serie.rankingleague_id')),
             'conditions' => array(
-                'OR' => array(
-                    'Team.player1_id' => $this->id,
-                    'Team.player2_id' => $this->id,
-                ),
+                    'PiT.player_id' => $this->id,
+                    'Rankingleague.id' => $this->rankingleague_id,
             )));
 
         if($this->ranking == null) {
