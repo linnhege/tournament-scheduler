@@ -22,15 +22,15 @@ MvcConfiguration::append(array(
     )
 ));
 
-include_once( __DIR__ . "/../logic/PlayerManager.php");
-include_once( __DIR__ . "/../logic/TournamentResultManager.php");
-include_once( __DIR__ . "/../logic/SignupValidator.php");
-include_once( __DIR__ . "/../logic/TeamManager.php");
-include_once( __DIR__ . "/../logic/TournamentManager.php");
-include_once( __DIR__ . "/../logic/TournamentTeamManager.php");
-include_once( __DIR__ . "/../logic/SeedingManager.php");
-include_once( __DIR__ . "/../logic/SeedingPlayerList.php");
-include_once( __DIR__ . "/../logic/SeedingPlayer.php");
-include_once( __DIR__ . "/../logic/PlayersInTeam.php");
-include_once( __DIR__ . "/../views/util/util.php");
+include_once( dirname(__FILE__) . "/../logic/PlayerManager.php");
+include_once( dirname(__FILE__) . "/../logic/TournamentResultManager.php");
+include_once( dirname(__FILE__) . "/../logic/SignupValidator.php");
+include_once( dirname(__FILE__) . "/../logic/TeamManager.php");
+include_once( dirname(__FILE__) . "/../logic/TournamentManager.php");
+include_once( dirname(__FILE__) . "/../logic/TournamentTeamManager.php");
+include_once( dirname(__FILE__) . "/../logic/SeedingManager.php");
+include_once( dirname(__FILE__) . "/../logic/SeedingPlayerList.php");
+include_once( dirname(__FILE__) . "/../logic/SeedingPlayer.php");
+include_once( dirname(__FILE__) . "/../logic/PlayersInTeam.php");
+include_once( dirname(__FILE__) . "/../views/util/util.php");
 
