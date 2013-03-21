@@ -14,6 +14,17 @@
                 <span class='property'>date:</span>
                 <span class='value'><?php echo $tournament->date ?></span>
             </li>
+            <li id='price'>
+                <span class='property'>pris:</span>
+                <span class='value'><?php echo $tournament->price ?></span>
+            </li>
+            <li id='responsibility'>
+                <span class='property'>tuneringsansvarlig:</span>
+
+                <span class='value'><?php
+                    $wp_user = get_userdata($tournament->turneringsansvarlig);
+                    echo  $wp_user->display_name ?></span>
+            </li>
         </ul>
     </div>
 </div>

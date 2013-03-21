@@ -16,7 +16,9 @@ echo "<div id='signup'>";
             'current_user' => $current_user,
             'adminUrl' => $adminUrl,
             'availablePlayers' => $availablePlayers,
-            'isUserSignedup' =>  $isUserSignedup)));
+            'isUserSignedup' =>  $isUserSignedup,
+            'canUserSignup' => $canUserSignup)
+    ));
 echo "<div>";
 
 echo "<div id='signup_teams'>";

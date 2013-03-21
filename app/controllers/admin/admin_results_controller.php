@@ -62,8 +62,10 @@ class AdminResultsController extends MvcAdminController {
             'conditions' => array(
                 'tournament_id' => $id),
             'order' => 'place'));
+
         foreach($results as $result):
-            $result->team = TeamManager::constructTeamByTeamId($result->team_id);
+            //TODO: rankingleague
+            $result->team = TeamManager::constructTeamByTeamId($result->team_id, null);
         endforeach;
 
         $form_url = get_admin_url() . "admin.php?page=mvc_results-save_results";
@@ -75,6 +77,14 @@ class AdminResultsController extends MvcAdminController {
         $this->render_view("admin/results/tournament_results", $options);
     }
 
+    public function choose_tournament_to_edit() {
+        $this->load_model('Tournament');
+        $tournaments = $this->Tournament->find(array('selects' => array('id', 'name')));
+        $options = array('locals' =>
+        array(
+            'tournaments' => $tournaments));
+        $this->render_view("admin/tournaments/choose_tournament", $options);
+    }
 }
 
 ?>

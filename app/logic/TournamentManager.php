@@ -90,7 +90,8 @@ class TournamentManager
 
     public function getResultList()
     {
-        $resultManager = new TournamentResultManager($this->tournament->id);
+
+        $resultManager = new TournamentResultManager($this->tournament->__id);
         $resultList = $resultManager->getResultList();
         foreach($resultList as $result):
             $result->team = TeamManager::constructTeamByTeamId($result->team_id, $this->getRankingLeagueId());
@@ -117,5 +118,26 @@ class TournamentManager
      */
     public function tournament() {
         return $this->tournament;
+    }
+
+    /**
+     * @return bool
+     */
+    public function canUserSignup() {
+        //TODO: Trigger this on signup also, not just view part
+        global $wpdb;
+        $sql = "select
+                  (Select count(*) from ". $wpdb->prefix . "results r where r.tournament_id = ". $this->tournament->__id .") pameldte_lag,
+                  (Select t.maximum_teams from ". $wpdb->prefix . "tournaments t where t.id = ".$this->tournament->__id.") max
+                  from dual";
+
+        $result = $wpdb->get_results($sql);
+        $pameldte_lag = $result[0]->pameldte_lag;
+        $max = $result[0]->max;
+        if($max != 0 && $pameldte_lag >= $max):
+            return false;
+        else:
+            return true;
+        endif;
     }
 }

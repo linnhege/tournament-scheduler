@@ -35,8 +35,7 @@ class TournamentResultManager
                 'tournament_id' => $this->validator->tournament_id,
                 'points >' => 0
             ),
-            'order' => 'place DESC'
-
+            'order' => 'place ASC'
         ));
         return $resultList;
     }

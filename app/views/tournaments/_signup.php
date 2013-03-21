@@ -6,7 +6,10 @@ if ($isUserSignedup) {
     array('tournament' => $tournament,
         'current_user' => $current_user)));
 
-} elseif ($current_user->ID == 0) {
+}elseif(!$canUserSignup) {
+    $this->render_view('tournaments/signup/_signup_to_many_teams');
+}
+elseif ($current_user->ID == 0) {
     $this->render_view('tournaments/signup/_signup_not_logged_in', array('locals' =>
     array('tournament' => $tournament,
         'current_user' => $current_user)));

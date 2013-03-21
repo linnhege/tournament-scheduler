@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="tournament-scheduler" default="dist">
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare">
+        <echo msg="Making directory ./build and remove old zipfile"/>
+        <mkdir dir="./build"/>
+        <delete file="tournament_scheduler.zip" verbose="true" failonerror="false"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" depends="prepare">
+        <echo msg="Copying files to build directory..."/>
+        <copy file="./tournament_scheduler.php" tofile="./build/tournament_scheduler.php" verbose="true"/>
+        <copy file="./tournament_scheduler_loader.php" tofile="./build/tournament_scheduler_loader.php" verbose="true"/>
+        <copy todir="./build/app" >
+            <fileset dir="././app">
+                <include name="**"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT)  Target: dist                       -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+        <echo msg="Creating archive..."/>
+        <zip destfile="./tournament_scheduler.zip">
+            <fileset dir="./build">
+                <include name="**"/>
+            </fileset>
+        </zip>
+        <echo msg="Cleaning up: removing build dir"/>
+        <delete dir="./build" includeemptydirs="true" verbose="false" failonerror="false"/>
+        <echo msg="Files copied and compressed in build directory OK!"/>
+    </target>
+</project>

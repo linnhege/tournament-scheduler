@@ -2,8 +2,17 @@
 <div class="details">
     <ul>
         <li>Navn: <?php echo $player->user->display_name ?> </li>
-        <li>Ranking: <?php echo $player->getRanking() ?> </li>
-    </ul>
+        <?php
+        $rankings = $player->getRankingforAllRankingLeagues();
+        if(!empty($rankings)):
+            echo "<table><thead><tr><td>Rankingleague</td><td>Poeng</td></tr></thead><tbody>";
+            foreach($rankings as $ranking):
+                echo "<tr><td>".$ranking->name."</td><td>".$ranking->points."</td></tr>";
+            endforeach;
+            echo "</tbody></table>";
+        endif;
+?>
+
 </div>
 <div class="results">
     <?php
@@ -11,9 +20,9 @@
     if(empty($results)):
         echo "<p>Ingen Resultater registert</p>";
     else:
-        foreach($results as $result):
+        foreach($results as $ranking):
             echo "<ul>";
-            echo "<li>" .$result->place  . "</li>";
+            echo "<li>" .$ranking->place  . "</li>";
             echo "</ul>";
         endforeach;
     endif;

@@ -38,6 +38,7 @@ class TournamentsController extends MvcPublicController
         $this->set('signupPlayers', $tournamentManager->signupPlayers());
         $this->set('seedingList', $tournamentManager->seedingList());
         $this->set('isUserSignedup', $tournamentManager->isCurrentUserSignedUp());
+        $this->set('canUserSignup', $tournamentManager->canUserSignup());
         $this->set('results', $tournamentManager->getResultList());
 
     }

@@ -16,7 +16,8 @@ MvcConfiguration::append(array(
         'matches' => array('hide_menu' => true),
         'results' => array(
             'edit_result',
-            'save_results'
+            'save_results',
+            'choose_tournament_to_edit'
         )
     )
 ));
