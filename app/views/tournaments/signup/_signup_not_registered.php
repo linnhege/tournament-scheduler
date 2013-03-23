@@ -1,6 +1,9 @@
 <?php
+
+$baseUrl = get_bloginfo('url');
+
 $html = "<p>";
-$html .= "<form method='post' action='/wordpress/tournaments/add_team/{$tournament->id}'>";
+$html .= "<form method='post' action='".$baseUrl."/tournaments/add_team/{$tournament->id}'>";
 $html .= MvcFormTagsHelper::hidden_input('tournament_id', array('value' => $tournament->id));
 $html .= MvcFormTagsHelper::hidden_input('player_id1', array('value' => $current_user->ID));
 $html .= "{$current_user->display_name} - ";

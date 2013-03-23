@@ -3,7 +3,7 @@
 class TournamentSchedulerLoader extends MvcPluginLoader
 {
 
-    var $db_version = '5.2';
+    var $db_version = '5.3.1';
     var $tables = array();
 
     function activate()
@@ -91,6 +91,21 @@ class TournamentSchedulerLoader extends MvcPluginLoader
                           comment text,
                           UNIQUE KEY id (id)
                           ) DEFAULT CHARACTER SET utf8;";
+            dbDelta($sql);
+
+            $sql = "CREATE TABLE {$wpdb->prefix}tournaments (
+                        id mediumint(9) NOT NULL  PRIMARY KEY AUTO_INCREMENT,
+                        name tinytext NOT NULL,
+                        serie_id mediumint(9) NOT NULL,
+                        date datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                        location tinytext NOT NULL,
+                        details text,
+                        final_seeding text,
+                        price int(11) NOT NULL,
+                        turneringsansvarlig int(11) NOT NULL,
+                        maximum_teams int(11) NOT NULL,
+                        UNIQUE KEY id (id)
+                        ) DEFAULT CHARACTER SET utf8;";
             dbDelta($sql);
         }
     }
