@@ -1,6 +1,6 @@
 <?php
 
-class locationsController extends MvcPublicController {
+class LocationsController extends MvcPublicController {
 	
 }
 

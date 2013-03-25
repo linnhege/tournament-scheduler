@@ -8,7 +8,9 @@
             </li>
             <li id='place'>
                 <span class='property'>Location:</span>
-                <span class='value'><?php echo $tournament->location ?></span>
+                <span class='value'>
+                    <?php echo $tournament->location_name; ?>
+                </span>
             </li>
             <li id='date'>
                 <span class='property'>date:</span>
@@ -20,11 +22,11 @@
             </li>
             <li id='responsibility'>
                 <span class='property'>tuneringsansvarlig:</span>
-
-                <span class='value'><?php
-                    $wp_user = get_userdata($tournament->turneringsansvarlig);
-                    echo  $wp_user->display_name ?></span>
+                <span class='value'>
+                    <?php echo '<a href="'. site_url() . "/tournament_responsibles/" . $tournament->tournamentResponsible->id . '/">'.$tournament->tournamentResponsible->name.'</a>'; ?>
+                </span>
             </li>
         </ul>
+        Merknader: <span class='coments'> <?php echo $tournament->details; ?> </span>
     </div>
 </div>

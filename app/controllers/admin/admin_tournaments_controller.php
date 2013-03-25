@@ -6,12 +6,16 @@ class AdminTournamentsController extends MvcAdminController {
 
     public function add() {
         $this->set_series();
+        $this->set_location();
+        $this->set_responsible();
         $this->create_or_save();
     }
 
     public function edit() {
         $this->verify_id_param();
         $this->set_series();
+        $this->set_responsible();
+        $this->set_location();
         $this->set_object();
         $this->create_or_save();
     }
@@ -21,6 +25,18 @@ class AdminTournamentsController extends MvcAdminController {
         $this->load_model('Series');
         $series = $this->Series->find(array('selects' => array('id', 'name')));
         $this->set('series', $series);
+    }
+
+    private function set_location() {
+        $this->load_model('Location');
+        $locations = $this->Location->find(array('selects' => array('id', 'name')));
+        $this->set('locations', $locations);
+    }
+
+    private function set_responsible() {
+        $this->load_model('TournamentResponsible');
+        $tournamentResponsibles = $this->TournamentResponsible->find(array('selects' => array('id', 'name')));
+        $this->set('tournamentResponsible', $tournamentResponsibles);
     }
 
     public function admin_serie_name($object) {

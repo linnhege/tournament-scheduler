@@ -70,10 +70,14 @@ class AdminResultsController extends MvcAdminController {
 
         $form_url = get_admin_url() . "admin.php?page=mvc_results-save_results";
 
+        $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
+
+
         $options = array('locals' =>
         array('results' => $results,
             'tournament' => $tournament,
-            'form_url' => $form_url));
+            'form_url' => $form_url,
+            'availablePlayers' => $tournamentManager->availablePlayers()));
         $this->render_view("admin/results/tournament_results", $options);
     }
 

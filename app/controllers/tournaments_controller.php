@@ -26,6 +26,10 @@ class TournamentsController extends MvcPublicController
         $tournament = $this->Tournament->find_by_id($object->id, array(
             'includes' => array('Result')
         ));
+
+        $this->setLocationNameOnTournamentObject($object, $tournament);
+        $this->setTournamentResponsibleOnTournamentObject($object, $tournament);
+
         $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
 
         //TODO.... fix Result/Users
@@ -43,13 +47,20 @@ class TournamentsController extends MvcPublicController
 
     }
 
-    private function set_serie()
+    public function setLocationNameOnTournamentObject($object, $tournament)
     {
-        $this->load_model('Series');
-        $series = $this->Series->find(array('selects' => array('id', 'name')));
-        $this->set('series', $series);
+        $this->load_model('Location');
+        $location = $this->Location->find_by_id($object->location_id);
+        $tournament->location_name = $location->name;
     }
 
+
+    public function setTournamentResponsibleOnTournamentObject($object, $tournament)
+    {
+        $this->load_model('TournamentResponsible');
+        $tournamentResponsible = $this->TournamentResponsible->find_by_id($object->tournament_responsible_id);
+        $tournament->tournamentResponsible = $tournamentResponsible;
+    }
 }
 
 ?>

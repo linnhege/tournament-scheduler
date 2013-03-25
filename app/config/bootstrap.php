@@ -7,17 +7,21 @@ MvcConfiguration::set(array(
 MvcConfiguration::append(array(
     'AdminPages' => array(
         'tournaments' => array(
-            'add',
-            'edit',
-            'results'
-        ),
+            'add' => array('capability' => 'delete_others_pages'),
+            'edit'=> array('capability' => 'delete_others_pages'),
+            'results' => array('capability' => 'delete_others_pages'),
+            'capability' => 'delete_others_pages' ),
         'venues' => array('hide_menu' => true),
         'teams' => array('hide_menu' => true),
         'matches' => array('hide_menu' => true),
         'results' => array(
-            'edit_result',
+            'edit_result' => array('capability' => 'delete_others_pages',
+                                'in_menu' => false),
+            'delete' => array('capability' => 'delete_others_pages',
+                'in_menu' => false),
             'save_results',
-            'choose_tournament_to_edit'
+            'choose_tournament_to_edit',
+            'capability' => 'delete_others_pages'
         )
     )
 ));
