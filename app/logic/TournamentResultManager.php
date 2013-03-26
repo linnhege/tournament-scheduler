@@ -25,8 +25,7 @@ class TournamentResultManager
             'team_id' => $team_id,
             'tournament_id' => $this->validator->tournament_id
         );
-        $this->resultModel->create($result);
-        return $this->teamsModel->insert_id;
+        return  $this->resultModel->create($result);
     }
 
     public function getResultList() {

@@ -16,6 +16,35 @@ class AdminResultsController extends MvcAdminController {
         $this->set_object();
     }
 
+    public function add_team() {
+        $player_id1 = (int) $_POST['player_id1'];
+        $player_ids = (array) $_POST['player_id2'];
+        $tournament_id = (int) $_POST['tournament_id'];
+        $signupVaildator = new TournamentResultManager($tournament_id);
+        $id = $signupVaildator->signup($player_id1, $player_ids);
+        if(!empty($id) && $id > 0) {
+            $this->set_flash('notice', 'Laget er meldt på turneringen!');
+        } else {
+            $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt administrator hvis du har sett denne flere ganger!');
+        }
+        $url = MvcRouter::admin_url(array('controller' => 'results', 'action' => 'edit_result', 'id' => $tournament_id));
+        $this->redirect($url);
+    }
+
+    public function delete() {
+        $this->verify_id_param();
+        $this->set_object();
+        if (!empty($this->object)) {
+            $this->model->delete($this->params['id']);
+            $this->flash('notice', 'Successfully deleted!');
+        } else {
+            $this->flash('warning', 'A '.MvcInflector::humanize($this->model->name).' with ID "'.$this->params['id'].'" couldn\'t be found.');
+        }
+        $url = MvcRouter::admin_url(array('controller' => $this->name, 'action' => 'edit_result', 'id' => $this->params['tournament']));
+        $this->redirect($url);
+
+    }
+
     private function set_rankingleagues() {
         $this->load_model('Rankingleague');
         $rankingleagues = $this->Rankingleague->find(array('selects' => array('id', 'name')));

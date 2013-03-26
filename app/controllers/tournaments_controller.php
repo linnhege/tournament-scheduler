@@ -9,15 +9,15 @@ class TournamentsController extends MvcPublicController
         $tournament_id = (int) $_POST['tournament_id'];
         $signupVaildator = new TournamentResultManager($tournament_id);
         $id = $signupVaildator->signup($player_id1, $player_ids);
-        if($id > 0) {
+        if(!empty($id) && $id > 0) {
             $this->set_flash('notice', 'Du er meld på turneringen!');
         } else {
             $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt oss hvis du har sett denne meldingen flere ganger!');
         }
-        if($_POST['admin'] == true) {
-            $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+        if($_POST['admin'] == 1) {
+            $url = MvcRouter::admin_url(array('controller' => 'results', 'action' => 'edit_result', 'id' => $tournament_id));
         } else {
-            $url = MvcRouter::admin_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+            $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
         }
         $this->redirect($url);
     }

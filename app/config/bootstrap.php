@@ -19,6 +19,8 @@ MvcConfiguration::append(array(
                                 'in_menu' => false),
             'delete' => array('capability' => 'delete_others_pages',
                 'in_menu' => false),
+            'add_team' => array('capability' => 'delete_others_pages',
+                'in_menu' => false),
             'save_results',
             'choose_tournament_to_edit',
             'capability' => 'delete_others_pages'
