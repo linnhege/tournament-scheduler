@@ -14,7 +14,11 @@ class TournamentsController extends MvcPublicController
         } else {
             $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt oss hvis du har sett denne meldingen flere ganger!');
         }
-        $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+        if($_POST['admin'] == true) {
+            $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+        } else {
+            $url = MvcRouter::admin_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
+        }
         $this->redirect($url);
     }
 
