@@ -4,6 +4,11 @@ tournament-scheduler
 Tournament plugin for creating beach volleyball tournaments and letting wordpress user signup to the different tournaments
 
 
+==== New in version 5.4.2 ===
+ * Added admin menu link from public tournament page.
+ * Added admin result link from admin tournament page
+
+
 ==== New in version 5.4.1 ===
  * After adding a team in admin pages, you stay on the same page.
  * Fixed error message when adding a Tournament Responsible

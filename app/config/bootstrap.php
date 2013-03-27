@@ -11,7 +11,6 @@ MvcConfiguration::append(array(
             'edit'=> array('capability' => 'delete_others_pages'),
             'results' => array('capability' => 'delete_others_pages'),
             'capability' => 'delete_others_pages' ),
-        'venues' => array('hide_menu' => true),
         'teams' => array('hide_menu' => true),
         'matches' => array('hide_menu' => true),
         'results' => array(

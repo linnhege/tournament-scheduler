@@ -14,11 +14,7 @@ class TournamentsController extends MvcPublicController
         } else {
             $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt oss hvis du har sett denne meldingen flere ganger!');
         }
-        if($_POST['admin'] == 1) {
-            $url = MvcRouter::admin_url(array('controller' => 'results', 'action' => 'edit_result', 'id' => $tournament_id));
-        } else {
-            $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
-        }
+        $url = MvcRouter::public_url(array('controller' => $this->name, 'action' => 'show', 'id' => $tournament_id));
         $this->redirect($url);
     }
 
@@ -33,6 +29,7 @@ class TournamentsController extends MvcPublicController
 
         $this->setLocationNameOnTournamentObject($object, $tournament);
         $this->setTournamentResponsibleOnTournamentObject($object, $tournament);
+        $this->setRankingleagueOnTournamentObject($object, $tournament);
 
         $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
 
@@ -64,6 +61,15 @@ class TournamentsController extends MvcPublicController
         $this->load_model('TournamentResponsible');
         $tournamentResponsible = $this->TournamentResponsible->find_by_id($object->tournament_responsible_id);
         $tournament->tournamentResponsible = $tournamentResponsible;
+    }
+
+    private function setRankingleagueOnTournamentObject($object, $tournament)
+    {
+        $this->load_model('Series');
+        $this->load_model('Rankingleague');
+        $serie = $this->Series->find_by_id($object->serie_id);
+        $rankingleague = $this->Rankingleague->find_by_id($serie->rankingleague_id);
+        $tournament->rankingleague = $rankingleague;
     }
 }
 
