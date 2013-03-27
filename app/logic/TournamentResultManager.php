@@ -21,9 +21,14 @@ class TournamentResultManager
 
     private function createResult($team_id)
     {
+        $signedUpById = wp_get_current_user()->ID;
+        $signedUpDate = date("Y-m-d H:i:s");
+
         $result = array(
             'team_id' => $team_id,
-            'tournament_id' => $this->validator->tournament_id
+            'tournament_id' => $this->validator->tournament_id,
+            'signedUpDate'  => $signedUpDate,
+            'signedUpBy' => $signedUpById
         );
         return  $this->resultModel->create($result);
     }

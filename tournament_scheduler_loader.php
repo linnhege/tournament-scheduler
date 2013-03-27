@@ -3,7 +3,7 @@
 class TournamentSchedulerLoader extends MvcPluginLoader
 {
 
-    var $db_version = '5.4.1';
+    var $db_version = '5.4.2';
     var $tables = array();
 
     function activate()
@@ -107,6 +107,8 @@ class TournamentSchedulerLoader extends MvcPluginLoader
                           team_id mediumint(9) NOT NULL,
                           points mediumint(9) NOT NULL,
                           place mediumint(9) NOT NULL,
+                          signedUpBy mediumint(9),
+                          signedUpDate time default CURRENT_TIMESTAMP,
                           comment text,
                           UNIQUE KEY id (id)
                           ) DEFAULT CHARACTER SET utf8;";
