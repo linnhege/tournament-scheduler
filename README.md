@@ -1,7 +1,7 @@
 tournament-scheduler
 ====================
 
-Tournament plugin for creating beachvolleyball tournaments and letting wordpress user signup to the different tournaments
+Tournament plugin for creating beach volleyball tournaments and letting wordpress user signup to the different tournaments
 
 
 ==== New in version 5.4.1 ===

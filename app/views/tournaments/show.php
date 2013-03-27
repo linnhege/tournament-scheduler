@@ -39,8 +39,5 @@ echo "<div id='signup_teams'>";
     echo "<div>";
 
     ?>
-    <p>
-        <?php echo $this->html->link('&#8592; All Tournaments', array('controller' => 'tournaments')); ?>
-    </p>
 
 </div>

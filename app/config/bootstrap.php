@@ -40,3 +40,15 @@ include_once( dirname(__FILE__) . "/../logic/SeedingPlayer.php");
 include_once( dirname(__FILE__) . "/../logic/PlayersInTeam.php");
 include_once( dirname(__FILE__) . "/../views/util/util.php");
 
+add_action('mvc_admin_init', 'tournament_scheduler_on_mvc_admin_init');
+add_action('mvc_public_init', 'tournament_scheduler_on_mvc_public_init');
+
+function tournament_scheduler_on_mvc_admin_init($options) {
+    wp_register_style('mvc-style_tournament-scheduler-admin', mvc_css_url('tournament-scheduler', 'admin'));
+    wp_enqueue_style('mvc-style_tournament-scheduler-admin');
+}
+
+function tournament_scheduler_on_mvc_public_init($options) {
+    wp_register_style('mvc-style_tournament-scheduler-public', mvc_css_url('tournament-scheduler', 'tournament-scheduler'));
+    wp_enqueue_style('mvc-style_tournament-scheduler-public');
+}
