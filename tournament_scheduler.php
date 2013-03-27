@@ -5,7 +5,7 @@ Plugin URI:
 Description: a simple tournament scheduler that lets users of your site signup for beach volleyball tournaments.
 Handles a series of tournament with that automatically calculates the seeding based on the result of past tournaments
 Author: Sindre Øye Svendby
-Version: 0.5.4.1-SNAPSHOT
+Version: 0.5.4.2
 Author URI:
 */
 
