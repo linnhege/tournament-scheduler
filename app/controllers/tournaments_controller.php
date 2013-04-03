@@ -9,7 +9,7 @@ class TournamentsController extends MvcPublicController
         $tournament_id = (int) $_POST['tournament_id'];
         $signupVaildator = new TournamentResultManager($tournament_id);
         $id = $signupVaildator->signup($player_id1, $player_ids);
-        if($id > 0) {
+        if(!empty($id) && $id > 0) {
             $this->set_flash('notice', 'Du er meld på turneringen!');
         } else {
             $this->set_flash('error', 'Noe gikk galt, prøv igjen senere eller kontakt oss hvis du har sett denne meldingen flere ganger!');
@@ -26,6 +26,11 @@ class TournamentsController extends MvcPublicController
         $tournament = $this->Tournament->find_by_id($object->id, array(
             'includes' => array('Result')
         ));
+
+        $this->setLocationNameOnTournamentObject($object, $tournament);
+        $this->setTournamentResponsibleOnTournamentObject($object, $tournament);
+        $this->setRankingleagueOnTournamentObject($object, $tournament);
+
         $tournamentManager = new TournamentManager($tournament, get_current_user_id(), get_users());
 
         //TODO.... fix Result/Users
@@ -43,13 +48,29 @@ class TournamentsController extends MvcPublicController
 
     }
 
-    private function set_serie()
+    public function setLocationNameOnTournamentObject($object, $tournament)
     {
-        $this->load_model('Series');
-        $series = $this->Series->find(array('selects' => array('id', 'name')));
-        $this->set('series', $series);
+        $this->load_model('Location');
+        $location = $this->Location->find_by_id($object->location_id);
+        $tournament->location_name = $location->name;
     }
 
+
+    public function setTournamentResponsibleOnTournamentObject($object, $tournament)
+    {
+        $this->load_model('TournamentResponsible');
+        $tournamentResponsible = $this->TournamentResponsible->find_by_id($object->tournament_responsible_id);
+        $tournament->tournamentResponsible = $tournamentResponsible;
+    }
+
+    private function setRankingleagueOnTournamentObject($object, $tournament)
+    {
+        $this->load_model('Series');
+        $this->load_model('Rankingleague');
+        $serie = $this->Series->find_by_id($object->serie_id);
+        $rankingleague = $this->Rankingleague->find_by_id($serie->rankingleague_id);
+        $tournament->rankingleague = $rankingleague;
+    }
 }
 
 ?>

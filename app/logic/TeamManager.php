@@ -4,6 +4,10 @@ class TeamManager
 {
     private $teamsModel;
     public  $team_id;
+
+    /**
+     * @var array id of players
+     */
     public $players;
     public $team_name;
 
@@ -82,7 +86,6 @@ class TeamManager
             $sql = "INSERT INTO ".$prefix."playersinteam(team_id, player_id) VALUES ($id, $player)";
             $result = $wpdb->query("$sql");
             $affected_rows = $wpdb->num_rows;
-            echo "affected_rows: " . $affected_rows;
             if($affected_rows != $expected_affected_rows):
                 $unexpected_problems  = true;
             endif;

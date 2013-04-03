@@ -13,7 +13,8 @@ class SignupValidator
 
     public function isValid($player_id1, $player_ids) {
         $current_user = wp_get_current_user();
-        if((int) $current_user->ID != (int) $player_id1) {
+        //Todo: fix hack to let editor and greater add team. Should create our own capabilties.
+        if((int) $current_user->ID != (int) $player_id1 &&   !current_user_can( 'delete_others_pages' )) {
             throw new UnexpectedValueException("player is not equal to the current user logged in");
         }
 

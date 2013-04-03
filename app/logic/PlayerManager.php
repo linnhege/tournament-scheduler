@@ -52,7 +52,7 @@ class PlayerManager
                   AND pit.team_id = team.id
                   AND pit.player_id =" . $this->id. "
                   AND r.points > 0
-                  GROUP BY player_id
+                  GROUP BY rl.name
                   ORDER BY points DESC";
             $this->rankingLeaguePoints = $wpdb->get_results($sql);
             return $this->rankingLeaguePoints;

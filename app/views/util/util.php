@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * @param $team TeamManager
+ * @return string html
+ */
 function display_team($team) {
     $output = "";
     $i = 1;
@@ -15,10 +18,19 @@ function display_team($team) {
     return $output;
 }
 
+/**
+ * @param $team TeamManager
+ * @return string html
+ *
+ */
 function display_team_with_seeding($team) {
     return display_team($team) . " (" . $team->getRanking() . ")";
 }
 
+/**
+ * @param $user wordpress_user class... or something like that $wp_user
+ * @return string html
+ */
 function display_tournament_user($user) {
     return "<a href=\"". site_url() . "/players/" .$user->id . "\">" . $user->display_name . "</a>";
 }

@@ -58,13 +58,25 @@ class TournamentManager
     }
 
     /**
-     * @return array returns an array of arrays that contains 2 elements, the id's the player on the team.
+     * @return TeamManager[]
      */
     public function seedingList() {
         if($this->tournamentTeamManager == null) {
             $this->tournamentTeamManager = new TournamentTeamManager($this->tournament);
         }
-        return $this->tournamentTeamManager->seedingList();
+        $teamManagerArray =$this->tournamentTeamManager->seedingList();
+
+        function seeding_sort($a, $b)
+        {
+            if ($a->getRanking() == $b->getRanking()) {
+                return 0;
+            }
+            return ($a->getRanking() < $b->getRanking()) ? -1 : 1;
+        }
+
+        usort($teamManagerArray, 'seeding_sort');
+        $reversedTeamManagerArray = array_reverse($teamManagerArray);
+        return $reversedTeamManagerArray;
     }
 
 

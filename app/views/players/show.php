@@ -5,9 +5,9 @@
         <?php
         $rankings = $player->getRankingforAllRankingLeagues();
         if(!empty($rankings)):
-            echo "<table><thead><tr><td>Rankingleague</td><td>Poeng</td></tr></thead><tbody>";
+            echo "<table  style='border: 1px; margin: 20px; padding: 2px; text-align: center; width: 300px'><thead style='font-style: oblique'><tr><td>Rankingleague</td><td>Poeng</td></tr></thead><tbody>";
             foreach($rankings as $ranking):
-                echo "<tr><td>".$ranking->name."</td><td>".$ranking->points."</td></tr>";
+                echo "<tr><td>".$ranking->name."</td> <td>".$ranking->points."</td></tr>";
             endforeach;
             echo "</tbody></table>";
         endif;
