@@ -1,6 +1,14 @@
+<div id="admin">
+    <?php
+    if(current_user_can( 'delete_others_pages' )):
+        $url = MvcRouter::admin_url(array('controller' => $this->name, 'action' => 'edit', 'id' => $tournament->__id));
+        echo '<a href="'.$url.'">Admin</a>';
+    endif;
+    ?>
+</div>
 <div id="tournament">
 
-<h2><?php echo $tournament->__name; ?></h2>
+<h1><?php echo $tournament->__name; ?></h1>
 <?php
 echo "<div class='flash'>";
     $this->display_flash();
@@ -39,8 +47,5 @@ echo "<div id='signup_teams'>";
     echo "<div>";
 
     ?>
-    <p>
-        <?php echo $this->html->link('&#8592; All Tournaments', array('controller' => 'tournaments')); ?>
-    </p>
 
 </div>
