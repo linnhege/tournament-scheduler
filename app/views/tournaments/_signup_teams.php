@@ -1,4 +1,4 @@
-<h3>Påmeldte lag:</h3>
+<h3>Påmeldte lag <span class="arrows"> >> </span></h3>
 <?php
 $site_url = site_url();
 

@@ -1,0 +1,84 @@
+#single-tournament, #tournaments {
+    width: 100%;
+}
+
+#single-tournament .top {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#single-tournament .top .details{
+    width: 50%;
+    float: left;
+}
+
+#single-tournament .top .signup{
+    width: 50%;
+    float: right;
+}
+
+#single-tournament input[type="submit"]{
+    margin: 10px 0;
+}
+
+#single-tournament p.signup{
+    margin: 10px 5px;
+}
+
+#single-tournament .teams{
+    width: 100%;
+    margin: 20px 0;
+}
+
+#single-tournament p{
+    margin: 20px 5px;
+}
+
+#single-tournament .result{
+    width: 100%;
+    margin: 20px 0;
+}
+
+#single-tournament .admin{
+    float: right;
+}
+
+#single-tournament span.timeAndPlace{
+    margin: 10px 0;
+}
+
+p.login{
+    margin: 10px 0;
+}
+
+#tournaments table{
+    width: 65%;
+}
+
+#tournaments table tr.head td{
+    font-weight: bold;
+}
+
+#tournaments tr{
+    height: 20px;
+
+}
+
+#tournaments td{
+    padding: 10px;
+    border: 1px dashed #CCCCCC;
+}
+
+ul li{
+    margin: 15px 5px;
+    line-height: 18px;
+}
+
+.block {
+    margin: 0 0 40px;
+}
+
+
+
+
+

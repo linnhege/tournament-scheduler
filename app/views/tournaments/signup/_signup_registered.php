@@ -1,3 +1,3 @@
 <p>
-    Du er allerede meldt på, for og melde deg av kontakt turneringsansvarlig.
+    Du er allerede meldt på! For å melde deg av kontakt turneringsansvarlig.
 </p>
