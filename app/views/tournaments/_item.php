@@ -2,4 +2,3 @@
 <td>
 	<?php echo $this->html->tournament_link($tournament); ?>
 </td>
-<td></td>

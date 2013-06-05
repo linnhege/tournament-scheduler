@@ -1,9 +1,9 @@
-<h3>Påmeldte lag <span class="arrows"> >> </span></h3>
+<h3>Påmeldte lag <span class="arrows">»</span></h3>
 <?php
 $site_url = site_url();
 
 if(empty($seedingList)) {
-    echo "Ingen påmeldte lag";
+    echo "<p>Ingen påmeldte lag</p>";
 } else {
     echo "<ul>";
     $i = 1;

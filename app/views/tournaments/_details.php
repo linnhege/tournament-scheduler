@@ -1,4 +1,4 @@
-<h3>Detaljer <span class="arrows"> >> </span></h3>
+<h3>Detaljer <span class="arrows">»</span></h3>
 <ul>
     <li id='place'>
         <span class='property'>Sted:</span>
